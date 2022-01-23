@@ -20,13 +20,18 @@ searchBttn.click(function(){
     runAPIs();
 })
 
+function historyBttnClick(event){
+    event.preventDefault();
+        searchText = event.target.id
+        getWeatherData();
+}
+
 function runAPIs(){
     if(inputCityName.val() == ""){
         showError();
         return
     }else{
-        searchText = inputCityName.val();
-        
+        searchText = inputCityName.val();        
         getWeatherData();
         storeSearchHistory();
         getSearchHistory();
@@ -66,12 +71,6 @@ function getWeatherData(){
     })
 }
 
-function historyBttnClick(event){
-    event.preventDefault();
-        searchText = event.target.id
-        getWeatherData();
-}
-
 var fiveDayForecast = function(){
     fiveDayWeather.empty();
     var lat = $('#lat').html()
@@ -97,7 +96,7 @@ var fiveDayForecast = function(){
             colorCode = "btn-primary"
             alt="Stay Inside"
         }
-        weatherOnDay.append('<p>UV Index: <button type="button" class="btn '+colorCode+'">'+uvIndex+'</button><sup>  '+alt+'</sup></p>')
+        weatherOnDay.append('<p>UV Index: <button type="button" class="btn '+colorCode+'">'+uvIndex+'</button><sup>'+alt+'</sup></p>')
         for(i=1;i<6;i++){
             var forecastDate = moment.unix(data.daily[i].dt).format("DD MMM YYYY")
             var tempKelvin = (data.daily[i].temp.max+data.daily[i].temp.min)/2
