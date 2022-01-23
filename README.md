@@ -28,7 +28,7 @@ THEN I am again presented with current and future conditions for that city
 The Weather-Dashboard is built to view current and foreacast weather for the next five days. The design of the website is built using bootstrap. When a user enters a city name the website fetches data from open weather API and the elements are dynamically presented. Major learnings were deeper understanding of API calls, asynchronous aspects of a promise with DOM manipulation.
 
 ## Application
-The workday scheduler can be accessed with this link:
+The application can be accessed with this link:
 [Weather Dashboard](https://razor-ray.github.io/Weather-Dashboard/)
 
 ## Screenshot
